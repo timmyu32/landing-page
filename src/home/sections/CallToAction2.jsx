@@ -3,7 +3,18 @@ import { TextField, Button, Icon } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import clsx from "clsx";
 import emailjs from '@emailjs/browser';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+
+const mobile = (props) => {
+  return css`
+      @media screen and (max-width: 420px) {
+          ${props}
+      }
+  `
+  ;
+};
+
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   button: {
@@ -30,7 +41,10 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 40%;
-  padding: 20px; 
+  padding: 20px;
+  ${mobile({
+    width: '100%'
+  })}  
 `;
 
 const FormContainer = styled.div`
@@ -56,7 +70,7 @@ const Input = styled.input`
     color: black;
     font-size: 18px;
     font-weight: bold;
-    background-color: #D6D6D6;
+    background-color: #ededed;
 `
 
 
@@ -89,7 +103,7 @@ const CallToAction2 = () => {
   return (
     <section style={{backgroundColor:'#798be5'}} className="section section-cta2" id="cta2">
       <Container>
-        <Wrapper>
+        <Wrapper style={{backgroundColor:"rgba(194, 194, 194, .3)", borderRadius:'8px'}}>
             <h1 style={{fontSize:'40px', color:'black', textShadow: "0 4px 4px rgba(0, 0, 0, 0.3)"}} className="mb-">{message}</h1>
             <h4 style={{color:'black', textShadow: "0 4px 4px rgba(0, 0, 0, 0.3)"}}>{subMessage}</h4>
             
@@ -102,17 +116,19 @@ const CallToAction2 = () => {
             </ul>
             }
             <Form id='form' onSubmit={(e) => handleClick(e)}>
-              <Input required ref={fNameRef} name='name' placeholder="What can we call you?"/>
+              <Input required ref={fNameRef} name='name' placeholder="What's your Name?"/>
               <Input required type='email' ref={emailRef} name='email' placeholder="Email"/>
             </Form >          
-            <Button style={{border:'5px solid darkblue'}}onClick={() =>handleClick()}
-                className={clsx(
-                  "bg-primary rounded text-13 text-white px-7 py-11px mt-2",
-                  classes.button
-                )}
-              >
-                <span className="ml-2">Free Demo</span>
-              </Button>
+            <div style={{ textAlign:'center'}} className="btn">
+              <Button style={{border:'5px solid darkblue'}}onClick={() =>handleClick()}
+                  className={clsx(
+                    "bg-primary text-16 text-white px-7 py-11px mt-2",
+                    classes.button
+                  )}
+                >
+                  <span className="ml-2">Free Demo</span>
+                </Button>
+            </div>
         </Wrapper>       
       </Container>
       

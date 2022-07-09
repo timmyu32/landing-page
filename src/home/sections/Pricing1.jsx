@@ -179,7 +179,7 @@ const Pricing1 = () => {
                     </h3>
 
                     {offerList.map((offer, index) => (
-                      <div
+                      <div 
                         key={index}
                         style={{fontSize:'16px', fontWeight:'bold'}}
                         className={clsx({
@@ -188,7 +188,7 @@ const Pricing1 = () => {
                         })}
                       >
                         
-                        {offer}
+                        {allowedOfferIndexList.includes(index) ? offer : '     -     '}
                       </div>
                     ))}
 
