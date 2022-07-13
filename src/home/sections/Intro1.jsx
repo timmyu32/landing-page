@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles';
 import ScrollTo from "../common/ScrollTo";
 import clsx from "clsx";
 import { debounce, classList } from "../../utils";
-
+import useAnalyticsEventTracker from '../useAnalyticsEventTracker';
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   introWrapper: {
@@ -109,6 +109,8 @@ const Intro1 = () => {
       }
     };
   }, [scrollableElement, handleScrollRef]);
+  
+  const gaEventTracker = useAnalyticsEventTracker('Interest Clicks');
 
   return (
     <section className={clsx("section text-white")} id="intro1">
@@ -157,7 +159,7 @@ const Intro1 = () => {
                 </Fab> */}
                 <ScrollTo to="cta2" onScroll={close}>
                   <Fab 
-                    // onClick={(e) => e.preventDefault()}
+                    onClick={()=>gaEventTracker('Free Demo 1')}
                     variant="extended"
                     size="large"
                     aria-label="Download"

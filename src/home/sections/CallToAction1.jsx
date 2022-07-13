@@ -3,6 +3,7 @@ import { debounce, classList } from "../../utils";
 import { Grid, Button } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import ScrollTo from "../common/ScrollTo";
+import useAnalyticsEventTracker from '../useAnalyticsEventTracker';
 
 import clsx from "clsx";
 
@@ -50,6 +51,8 @@ const CallToAction1 = ({ bg }) => {
     };
   }, [scrollableElement, handleScrollRef]);
 
+  const gaEventTracker = useAnalyticsEventTracker('Interest Clicks');
+
 
   return (
     <div className={clsx("section text-white", classes.sectionBG)} id="cta1">
@@ -69,7 +72,7 @@ const CallToAction1 = ({ bg }) => {
           </Grid>
           <Grid item lg={4} md={4} sm={12} xs={12} className="text-center">
             <ScrollTo to="cta2" onScroll={close}>
-              <Button style={{backgroundColor:'white'}} size="large" color="secondary" variant="contained">
+              <Button onClick={()=>gaEventTracker('Free Demo 1')} style={{backgroundColor:'white'}} size="large" color="secondary" variant="contained">
                   Free Demo
               </Button>
             </ScrollTo>

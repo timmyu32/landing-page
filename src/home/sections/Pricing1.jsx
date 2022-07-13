@@ -14,6 +14,7 @@ import {
 import { makeStyles } from '@mui/styles';
 
 import clsx from "clsx";
+import useAnalyticsEventTracker from '../useAnalyticsEventTracker';
 
 const useStyles = makeStyles(({ palette, ...theme }) => ({
   card: {
@@ -131,6 +132,8 @@ const Pricing1 = () => {
     setState({ ...state, switchToggled, plan });
   };
 
+  const gaEventTracker = useAnalyticsEventTracker('Interest Clicks');
+
   return (
     <div style={{backgroundColor:'#d6d6d6'}} className="section section-pricing1" id="pricing1">
       <div className="container">
@@ -203,7 +206,7 @@ const Pricing1 = () => {
         <div className="text-center mt-4">
                     <h5 style={{fontSize:'12px'}}>*Standard 3.5% transaction fee applies for all plans</h5>
                       <ScrollTo to="cta2" onScroll={close}>
-                        <Button style={{backgroundColor:'#798be5', cursor:'pointer'}} variant="contained">
+                        <Button onClick={()=>gaEventTracker('Free Demo 1')} style={{backgroundColor:'#798be5', cursor:'pointer'}} variant="contained">
                           Free Demo
                         </Button>
                       </ScrollTo>

@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useEffect } from "react";
 import {
   Route,
   Switch,
@@ -13,9 +13,14 @@ import "react-perfect-scrollbar/dist/css/styles.css";
 import GlobalCss from "./styles/jss/GlobalCss";
 
 import Landing1 from "./home/Landing1";
-
+import ReactGA from 'react-ga';
+const TRACKING_ID = process.env.TRACKING_ID ; // OUR_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   return (
     <ThemeProvider theme={Theme}>
       <GlobalCss>
