@@ -15,7 +15,7 @@ import GlobalCss from "./styles/jss/GlobalCss";
 import Landing1 from "./home/Landing1";
 import ReactGA from 'react-ga';
 const TRACKING_ID = process.env.TRACKING_ID ; // OUR_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
+ReactGA.initialize('UA-234432486-1');
 
 function App() {
   useEffect(() => {
