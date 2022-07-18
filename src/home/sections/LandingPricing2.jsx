@@ -86,22 +86,23 @@ const LandingPricing2 = (props) => {
       allowedOfferIndexList: [0, 1, 2, 3, 4, 5,6],
     },
   ];
-
+  
   const getInitFee = (title) => {
     switch(title) {
       case "Starter":
-        return 100
+        return 25
         break;
       case "Business":
-        return 280
+        return 30
         break;
       case "Ultimate":
-        return 350
+        return 30
         break;
       default:
-        return 100
+        return 25
     }
   }
+
 
   return (
     <section className="section" id="pricing2">

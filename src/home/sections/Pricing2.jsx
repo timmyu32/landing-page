@@ -103,16 +103,16 @@ const Pricing2 = (props) => {
   const getInitFee = (title) => {
     switch(title) {
       case "Starter":
-        return 100
+        return 25
         break;
       case "Business":
-        return 280
+        return 30
         break;
       case "Ultimate":
-        return 350
+        return 30
         break;
       default:
-        return 100
+        return 25
     }
   }
 
