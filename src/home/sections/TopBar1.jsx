@@ -76,7 +76,7 @@ const TopBar1 = () => {
             </ScrollTo>
           </li> */}
           <li>
-            <ScrollTo to="pricing1" onScroll={close}>
+            <ScrollTo to="pricing2" onScroll={close}>
               Pricing
             </ScrollTo>
           </li>
@@ -94,11 +94,11 @@ const TopBar1 = () => {
         </ul>
         <div className="m-auto" />
         <ul className="navigation">
-          {/* <li>
-            <a href="/dashboard">
-              <Icon className="mr-4">person</Icon> My Account
+          <li>
+            <a href="/get-started/info">
+              <Icon className="mr-4">clipboard</Icon> Get Started
             </a>
-          </li> */}
+          </li>
         </ul>
         <IconButton
           className="header__toggle"

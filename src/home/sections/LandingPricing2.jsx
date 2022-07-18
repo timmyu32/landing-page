@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from '@mui/styles';
-import axios from "axios";
+
 import {
   Grid,
   Card,
@@ -9,8 +9,8 @@ import {
   Icon,
   Button,
 } from "@mui/material";
-import { useDispatch, useSelector } from 'react-redux';
-import EuroIcon from "../common/icons/EuroIcon";
+import {useHistory} from 'react-router-dom';
+
 import StarterIcon from "../common/icons/StarterIcon";
 import TieIcon from "../common/icons/TieIcon";
 import CompanyIcon from "../common/icons/CompanyIcon";
@@ -50,10 +50,9 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
   },
 }));
 
-const Pricing2 = (props) => {
-  const classes = useStyles();
-
-  const user = useSelector(state => state.user.currentUser);
+const LandingPricing2 = (props) => {
+    const history = useHistory();
+    const classes = useStyles();
 
   const featureList = [
     "Custom Domain Name",
@@ -88,18 +87,6 @@ const Pricing2 = (props) => {
     },
   ];
 
-  const handleClick = (product_id) => {
-    const res = axios.post("http://127.0.0.1:8000/api/stripe/create-checkout-session",
-    {
-      product_id: product_id,
-      customer_id: user.customer_id
-    }).then(res =>
-    {
-      const url = res.data.url; 
-      window.location = url;
-    }
-    )
-  }
   const getInitFee = (title) => {
     switch(title) {
       case "Starter":
@@ -159,6 +146,7 @@ const Pricing2 = (props) => {
                         </span>
                         {" "}initial fee
                       </p>
+
                     </div>
                   </div>
 
@@ -175,13 +163,13 @@ const Pricing2 = (props) => {
                       </div>
                     ))}
                   </div>
-                  <Button
-                    onClick= {() => handleClick(plan.title)}
+                  <Button 
+                    onClick= {() => window.location = '/get-started/info'}
                     className="rounded px-6"
                     variant="contained"
                     color="primary"
                   >
-                    Select
+                    Get Started
                   </Button>
                 </Card>
               </Grid>
@@ -194,4 +182,4 @@ const Pricing2 = (props) => {
   );
 };
 
-export default Pricing2;
+export default LandingPricing2;
