@@ -89,7 +89,7 @@ const Pricing2 = (props) => {
   ];
 
   const handleClick = (product_id) => {
-    const res = axios.post("http://127.0.0.1:8000/api/stripe/create-checkout-session",
+    const res = axios.post(process.env.REACT_APP_API_URL + "/api/stripe/create-checkout-session",
     {
       product_id: product_id,
       customer_id: user.customer_id
