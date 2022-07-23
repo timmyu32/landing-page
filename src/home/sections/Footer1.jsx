@@ -31,7 +31,7 @@ const Footer1 = () => {
             <div className="p-8 h-full elevation-z3">
               <h4 className="text-20 mb-6 relative">About Us</h4>
               <p className="text-inherit">
-                Turn your Depop shop into a brand with Shmyy
+              Take control of your Depop selling experience with Shmyy
               </p>
               <p className="text-inherit">
                 Copyright © 2022 Shmyy.co, All rights reserved.

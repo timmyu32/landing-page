@@ -5,6 +5,9 @@ import { TbDeviceMobile } from "react-icons/tb";
 
 import { BsFillCloudCheckFill } from "react-icons/bs";
 
+import { MdEmail } from "react-icons/md";
+
+
 import { FaGlobeAmericas } from "react-icons/fa";
 import { Button, Icon, Card, CardContent, Grid } from "@mui/material";
 import { makeStyles } from '@mui/styles';
@@ -35,25 +38,25 @@ const Services1 = () => {
       icon: <BsFillCloudCheckFill/>,
       title: "Web Hosting",
       text:
-        "We'll set you up with dedicated web server able to seamlessly scale to meet your store's individual neesds.",
+        "You handle the selling, let us handle the servers. We'll set you up with a dedicated web server able to seamlessly scale to meet your store's individual needs.",
     },
     {
       icon: "depop",
       title: "Automatic Depop Inventory Tracking",
       text:
-        "Items on your storefront will automatically stay in sync with what's for sale on Depop– if it's sold/listed there, it's sold/listed here. Hassle free.",
+        "Items on your storefront will automatically stay in sync with what's for sale on Depop– if it's sold-out/listed there, it's sold/listed here. Simple.",
     },
     {
-      icon: <FaGlobeAmericas/>,
-      title: "Custom Domain Name",
+      icon: <MdEmail/>,
+      title: "Automatic Email Marketing",
       text:
-        "Stand out from the crowd with a custom domain name to reperesent your brand.",
+        "No need to waste time learning complicated email automation– we've got you covered. We send email alerts for important customer events automatically on your behalf.",
     },
     {
       icon: <TbDeviceMobile/>,
       title: "Modern Desktop & Mobile Site",
       text:
-        "Catch eyes and turn heads with a modern desktop site and a sleek, responsive mobile web application.",
+        "Over 65% of Ecommerce is done via mobile. Don't be late to the party. Catch eyes and break necks with a modern desktop site and a sleek, responsive mobile web application.",
     },
     
   ];
@@ -82,7 +85,7 @@ const Services1 = () => {
 
                     </div>
                     <h3 className="text-24" style={{fontWeight:'bold'}}>{service.title}</h3>
-                    <p>{service.text}</p>
+                    <p style={{'fontWeight':'bold'}}>{service.text}</p>
                   </div>
                   {/* <div className="pt-4">
                     <Button>READ MORE</Button>

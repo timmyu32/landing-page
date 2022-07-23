@@ -33,7 +33,13 @@ const SubHeader = styled.h4``;
 const PricingCont = styled.div`
     align-items: center;
 `;
-
+const TitleContainer = styled.span`
+    background-color: rgba(137, 155, 244, 0.3);
+    border-radius: 14px;
+    width: fit-content;
+    padding-left: 4px;
+    padding-right: 4px;
+`;
 
 const ChoosePlan = () => {
   const user = useSelector(state => state.user.currentUser);
@@ -42,7 +48,9 @@ const ChoosePlan = () => {
 
 
   useEffect(() => {
-    createCustomer();
+    if(user.customer_id == undefined ){
+      createCustomer();
+    }
   }, [])
 
   const createCustomer = () => {
@@ -60,7 +68,7 @@ const ChoosePlan = () => {
         <Container>
             <Heading>
             <Header>
-                Congrats {user.firstname}! Your Stripe account is ready to accept payments.
+                <TitleContainer> Congrats {user.firstname}!</TitleContainer> Your Shmyy Store is ready to accept payments.
             </Header>
             <SubHeader>
                 Now it's time to select a plan.

@@ -8,6 +8,7 @@ import LandingPricing2 from "./sections/LandingPricing2";
 // import Testimonial1 from "./sections/Testimonial1";
 import CallToAction1 from "./sections/CallToAction1";
 import CallToAction2 from "./sections/CallToAction2";
+import CallToAction3 from "./sections/CallToAction3";
 
 import FAQ1 from "./sections/FAQ1";
 import Pricing2 from "./sections/Pricing2";
@@ -25,6 +26,7 @@ const Landing1 = () => {
       <Intro1 />
       <Portfolio1 />
       <CallToAction1/>
+      <CallToAction3/>
       <Services1 />
       {/* <Testimonial1 /> */}
       {/* <FAQ1/> */}

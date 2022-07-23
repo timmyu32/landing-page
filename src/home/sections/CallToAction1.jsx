@@ -65,7 +65,7 @@ const CallToAction1 = ({ bg }) => {
           justify="flex-start"
         >
           <Grid item lg={8} md={8} sm={12} xs={12}>
-            <h2 style={{fontSize:'36px'}}>Find out if Shmyy is a good fit for you.</h2>
+            <h2 style={{fontSize:'36px'}}>Find out if <span style={{'fontWeight':'bold', 'backgroundColor':'#798be5', 'borderRadius':'5px', 'paddingLeft':'4px','paddingRight':'4px',}}>Shmyy</span>  is a good fit for you.</h2>
             <h4 className="text-inherit">
               Put your card away, you won't need it. Sign up for a free demo.
             </h4>

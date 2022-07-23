@@ -10,17 +10,20 @@ import Footer1 from "./sections/Footer1";
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 
-
+const TitleContainer = styled.span`
+    background-color: rgba(137, 155, 244, 0.3);
+    border-radius: 14px;
+    width: fit-content;
+    padding-left: 4px;
+    padding-right: 4px;
+`;
 const Container = styled.div`
   width: 100%;
   height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    rgba(255,255,255,0.9),
-    rgba(255,255,255,0.9)
-  ),  
+  background-color: rgba(222,222,222,0.5);
  
   `;
 
@@ -31,7 +34,9 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
     font-size: 24px;
-    font-weight: 300;
+    font-weight: bold;
+    color: #3f51b5;
+    
 `
 
 const Form = styled.form`
@@ -60,18 +65,13 @@ const Button = styled.button`
     border: none;
     padding: 15px 20px;
     cursor: pointer;
+    color: white;
+    background-color: #798BE5;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
 `
-const AdminLink = styled.a`
-    &:visited{
-      color: black
-    }
-    &:link{
-      color: black
-    }
-    &:active {
-      color: black;
-    }
-`;
+
 
 
 
@@ -129,19 +129,22 @@ const Register = (props) => {
     <div>
       <Container>
         <Wrapper>
-          <Title>Let's Get Started</Title>
-          <Title>Create A Seller Account with Shmyy.co</Title>
+          
+          <Title>Let's <TitleContainer>Get Started! </TitleContainer></Title>
+          <Title>First, create a Seller Account with Shmyy.co</Title>
           <Form id='form'>
             <Input ref={fNameRef} placeholder="First Name"/>
             <Input ref={lNameRef} placeholder="Last Name"/>
-            <Input type='email' ref={emailRef} placeholder="email"/>
+            <Input type='email' ref={emailRef} placeholder="Email"/>
             <Input type='tel' ref={phoneRef} placeholder="Phone Number"/>
             <Agreement>
               By creating an account, I consent to the processing of my personal data in 
               accordance with the <b>PRIVACY POLICY</b>.
             </Agreement>
           </Form >
-          <Button onClick={() =>handleClick()}>SET UP DEPOP INTEGRATION</Button>
+          <div className="btnCont" style={{'textAlign':'center'}}>
+            <Button onClick={() =>handleClick()}>NEXT</Button>
+          </div>
         </Wrapper>
         
       </Container>

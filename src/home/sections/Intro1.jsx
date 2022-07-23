@@ -119,10 +119,10 @@ const Intro1 = () => {
           <Grid container spacing={3} justify="center">
             <Grid item md={6}>
               <h1 className={clsx("mb-6 text-48", classes.title)}>
-                Connect with all your customers from one platform.
+                Launch your <span style={{'fontWeight':'bold', 'color':'#fe2400'}}>Depop</span> hustle to the <span style={{'fontWeight':'bold', 'color':'#fe2400'}}>next level</span>.
               </h1>
               <div className="text-22 mb-10">
-                Grow your Depop shop into a brand with Shmyy – accept payments, handle shipping, market to your base and more, all from one place.
+                Take control of your Depop selling experience with Shmyy – accept payments, track key metrics, market to your base and more, <span style={{'textDecoration':'underline', 'fontWeight':'bold'}}>all from one place.</span>
               </div>
 
               {/* <div className="mb-10 list">

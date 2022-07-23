@@ -56,13 +56,11 @@ const Pricing2 = (props) => {
   const user = useSelector(state => state.user.currentUser);
 
   const featureList = [
-    "Custom Domain Name",
-    "Web Hosting",
-    "Shmyy Storefront Template",
-    "Admin Site",
+    "Shmyy Storefront",
+    "Shmyy Admin Dashboard",
     "Depop Inventory Tracking",
     "Custom Design",
-    "Data analytics",
+    "Advanced Data analytics",
   ];
 
   const planList = [
@@ -70,21 +68,21 @@ const Pricing2 = (props) => {
       title: "Starter",
       icon: StarterIcon,
       price: 29.99,
-      allowedOfferIndexList: [0, 1, 2, 3],
+      allowedOfferIndexList: [0, 1,],
 
     },
     {
       title: "Business",
       icon: TieIcon,
-      price: 49.99,
-      allowedOfferIndexList: [0, 1, 2, 3, 4],
+      price: 34.99,
+      allowedOfferIndexList: [0, 1, 2],
 
     },
     {
       title: "Ultimate",
       icon: CompanyIcon,
       price: 59.99,
-      allowedOfferIndexList: [0, 1, 2, 3, 4, 5,6],
+      allowedOfferIndexList: [0, 1, 2, 3, 4],
     },
   ];
 
@@ -145,7 +143,7 @@ const Pricing2 = (props) => {
                     </IconButton>
                     <div>
                       <h3 className="text-primary m-0">{plan.title}</h3>
-                      <p className="m-0">
+                      <p className="m-0" style={{fontWeight:'bold'}}>
                         ${" "}
                         <span className="text-32 font-medium text-primary">
                           {plan.price}
@@ -171,7 +169,7 @@ const Pricing2 = (props) => {
                         <Icon className="mr-4" color="primary">
                           {allowedOfferIndexList.includes(ind)? 'done': ''}
                         </Icon>
-                        <p className="my-2">{allowedOfferIndexList.includes(ind)? item: '-'}</p>
+                        <p className="my-2" style={{fontWeight:'bold'}}>{allowedOfferIndexList.includes(ind)? item: '-'}</p>
                       </div>
                     ))}
                   </div>

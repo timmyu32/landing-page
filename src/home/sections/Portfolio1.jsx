@@ -13,12 +13,12 @@ const Portfolio1 = () => {
     {
       imageUrl: "./assets/images/Mar-Business_1.jpg",
       name: "Let's talk numbers",
-      description: `Utilize the Shmyy Admin Site to list new products, send promotional emails, view analytics and more!`,
+      description: `Utilize the Shmyy Admin Dashboard to list new products, send updates/alerts to customers via emails, view analytics and more!`,
     },
     {
       imageUrl: "./assets/images/Payment.png",
       name: "Payments are hassle free",
-      description: `Your storefront comes fully equiped with Stripe payment processing.`,
+      description: `Your storefront comes fully equipped with Stripe payment processing.`,
     },
     
   ];
@@ -27,7 +27,7 @@ const Portfolio1 = () => {
     <section className="section" id="portfolio1">
       <div className="container">
         <div className="section__header">
-          <h2 style={{textAlign:'center', fontSize:'36px'}}>Take control of your store – every step of the way.</h2>
+          <h2 style={{textAlign:'center', fontSize:'36px'}}>Take control of your store – <span style={{'textDecoration':'underline', 'fontWeight':'bold'}}>every step of the way.</span></h2>
           {/* <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
             unde inventore molestias ab adipisci eius nisi placeat at.
@@ -45,7 +45,7 @@ const Portfolio1 = () => {
                 <div className="flex-column justify-between">
                   <div className="px-4 pt-4">
                     <h5 className="m-0 text-16 font-bold">{portfolio.name}</h5>
-                    <p className="mb-4">{portfolio.description}</p>
+                    <p className="mb-4" style={{'fontWeight':'bold'}}>{portfolio.description}</p>
                     <Divider />
                   </div>
                   {/* <div className="px-4 py-2">
