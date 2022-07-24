@@ -16,6 +16,12 @@ const Container = styled.div`
     width: 100%;
     color: black;
 `;
+const MobileContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: black;
+`;
 
 const Left = styled.div`
     flex: 4;
@@ -114,8 +120,11 @@ const Success = () => {
   const user = useSelector(state => state.user.currentUser);
   const fNameRef = useRef(null);
   const emailRef = useRef(null);
+  const fNameRef2 = useRef(null);
+  const emailRef2 = useRef(null);
   useEffect(() =>{
     document.getElementById("btn").click();
+    document.getElementById("btn2").click();
     window.scrollTo(0, 0);
 
     }, []);
@@ -133,16 +142,33 @@ const Success = () => {
 
   }
 
+  const handleClick2 = (e) => {
+    document.getElementById("form2").addEventListener("click", function(event){
+      event.preventDefault()
+    })
+    emailjs.sendForm("service_96ebtug","template_82io9bf", document.getElementById("form"), 'DKzOTniNVR0dDul-H').then((result) => {
+        console.log('email sent')
+    },
+      (error) => {
+      console.log("An error occurred, Please try again"+ error.text);
+      });
+
+  }
+  const mql = window.matchMedia('(max-width: 480px)');
+
+  let mobileView = mql.matches;
 
   return (
     <>
-    <Container>
+    {mobileView?
+    <>
+    <MobileContainer>
         <Left>
             <CongratsContainer>
                 <Congrats>Congrats, {user.firstname}!!</Congrats>
             </CongratsContainer>
             <Subtitile style={{'marginBottom':'-15px', 'fontSize':'24px0', 'fontWeight':'600'}}>You're almost done with Shmyy Onboarding.</Subtitile>
-            <Subtitile>We have recieved your subscription-- please allow 1-3 business days for your
+            <Subtitile>We have received your subscription-- please allow 1-3 business days for your
                         Shmyy Store to be configured and tested. At that time, we will reach out via email regarding how
                         to use and access your Shmyy Store.
             </Subtitile>
@@ -176,8 +202,75 @@ const Success = () => {
             <Button id='btn' style={{border:'5px solid darkblue'}}onClick={() =>handleClick()}></Button>
         </InvisibleContainer>
 
+        <InvisibleContainer style={{'display':'none'}}>
+            <Form id='form2' onSubmit={(e) => handleClick2(e)}>
+                <Input required ref={fNameRef2} name='name' value={user.firstname}/>
+                <Input required type='email' ref={emailRef2} name='email' value={user.email}/>
+            </Form > 
+            <Button id='btn2' style={{border:'5px solid darkblue'}}onClick={() =>handleClick2()}></Button>
+        </InvisibleContainer>
+
+    </MobileContainer>
+    <Footer1/>
+    
+    </>
+    :
+    <>
+    <Container>
+        <Left>
+            <CongratsContainer>
+                <Congrats>Congrats, {user.firstname}!!</Congrats>
+            </CongratsContainer>
+            <Subtitile style={{'marginBottom':'-15px', 'fontSize':'24px0', 'fontWeight':'600'}}>You're almost done with Shmyy Onboarding.</Subtitile>
+            <Subtitile>We have received your subscription-- please allow 1-3 business days for your
+                        Shmyy Store to be configured and tested. At that time, we will reach out via email regarding how
+                        to use and access your Shmyy Store.
+            </Subtitile>
+            <Subtitile>See you soon!</Subtitile>
+            <Subtitile style={{'marginTop':'-15px', 'color':'white'}}>-Shmyy Team</Subtitile>
+
+        </Left>
+
+
+        <Right>
+            <DeatailsHeader>Account Details</DeatailsHeader>
+            <DetailsContainer>
+                <DetailsContainerLeft>
+                    <BsPersonSquare color='#3e50b3' size={160}/>
+                </DetailsContainerLeft>
+                <DetailsContainerRight>
+                    <DetailsItem>{user.firstname} {user.lastname}</DetailsItem>
+                    <DetailsItem>{user.email}</DetailsItem>
+                    <DetailsItem>{user.shop}</DetailsItem>
+                    <BuildingContainer>
+                        <DetailsItem style={{'paddingLeft':'5px', 'paddingRight':'5px'}}>Shmyy Store: Building</DetailsItem>
+                    </BuildingContainer>
+                </DetailsContainerRight>
+            </DetailsContainer>
+        </Right>
+        <InvisibleContainer style={{'display':'none'}}>
+            <Form id='form' onSubmit={(e) => handleClick(e)}>
+                <Input required ref={fNameRef} name='name' value={user.shop}/>
+                <Input required type='email' ref={emailRef} name='email' value={user.email}/>
+            </Form > 
+            <Button id='btn' style={{border:'5px solid darkblue'}}onClick={() =>handleClick()}></Button>
+        </InvisibleContainer>
+        <InvisibleContainer style={{'display':'none'}}>
+            <Form id='form2' onSubmit={(e) => handleClick2(e)}>
+                <Input required ref={fNameRef2} name='name' value={user.firstname}/>
+                <Input required type='email' ref={emailRef2} name='email' value={user.email}/>
+            </Form > 
+            <Button id='btn2' style={{border:'5px solid darkblue'}}onClick={() =>handleClick2()}></Button>
+        </InvisibleContainer>
+
     </Container>
     <Footer1/>
+    
+    </>
+    
+    
+    }
+    
     </>
   )
 }

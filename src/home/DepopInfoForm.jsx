@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 import { loginFailure, loginStart, loginSuccess, addShop } from '../redux/userRedux';
 import { useDispatch, useSelector } from 'react-redux';
+import { mobile } from './responsive'
 import Footer1 from "./sections/Footer1";
 
 
@@ -24,6 +25,9 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 40%;
   padding: 20px;  
+  ${mobile({
+    width: '80%'
+  })} 
 `;
 
 const Title = styled.h1`
@@ -130,11 +134,11 @@ const DepopInfoForm = (props) => {
 
 
      const handleClick = () => {
-          const res = axios.get(process.env.REACT_APP_API_URL + "/api/depop-info/get/" +depopShop.current.value).then(res => {
+          const res = axios.get(process.env.REACT_APP_API_URL + "/api/depop-info/get/" +depopShop.current.value.trim()).then(res => {
             setImageSrc(res.data.src)
             console.log(res.data.src)
             setImageFetched(true)
-            setShopName(depopShop.current.value.toLowerCase())
+            setShopName(depopShop.current.value.trim().toLowerCase())
             if(res.data.src == 'DEPOP SHOP NOT FOUND!'){
               setContinueBtn(false)
             }else{

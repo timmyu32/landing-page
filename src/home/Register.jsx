@@ -5,6 +5,7 @@ import { loginFailure, loginStart, loginSuccess } from '../redux/userRedux';
 import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import Footer1 from "./sections/Footer1";
+import { mobile } from './responsive'
 
 
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
@@ -19,7 +20,7 @@ const TitleContainer = styled.span`
 `;
 const Container = styled.div`
   width: 100%;
-  height: 80%;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,6 +31,9 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 40%;
   padding: 20px;  
+  ${mobile({
+    width: '80%'
+  })} 
 `;
 
 const Title = styled.h1`
@@ -103,18 +107,18 @@ const Register = (props) => {
 
      const handleClick = () => {
         const data = {
-                  firstname: fNameRef.current.value,
-                  lastname: lNameRef.current.value,
-                  phone: phoneRef.current.value,
-                  email: emailRef.current.value,
+                  firstname: fNameRef.current.value.trim(),
+                  lastname: lNameRef.current.value.trim(),
+                  phone: phoneRef.current.value.trim(),
+                  email: emailRef.current.value.trim(),
               };
         if( data.firstname && data.lastname && data.phone && data.email ){
             console.log('data recieved')
             dispatch(loginSuccess({
-              firstname: fNameRef.current.value,
-              lastname: lNameRef.current.value,
-              phone: phoneRef.current.value,
-              email: emailRef.current.value,
+              firstname: fNameRef.current.value.trim(),
+              lastname: lNameRef.current.value.trim(),
+              phone: phoneRef.current.value.trim(),
+              email: emailRef.current.value.trim(),
             }))
             console.log(user)
             history.push('/get-started/depop');
